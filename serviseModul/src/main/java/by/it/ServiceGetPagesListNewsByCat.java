@@ -1,0 +1,13 @@
+package by.it;
+
+import java.util.List;
+
+/**
+ * Created by NM Group on 11.05.2015.
+ */
+public class ServiceGetPagesListNewsByCat {
+    public List<BeanPageData> serGetPagesListNewsByCat(int id) {
+        PageNewsDao dao = PageNewsDao.GetMySingle();
+        return (dao.getPagesListNewsByCat(id));
+    }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/daoModul/daoModul.iml" filepath="$PROJECT_DIR$/daoModul/daoModul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modelModul/modelModul.iml" filepath="$PROJECT_DIR$/modelModul/modelModul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/news.iml" filepath="$PROJECT_DIR$/news.iml" />
+      <module fileurl="file://$PROJECT_DIR$/serviseModul/serviseModul.iml" filepath="$PROJECT_DIR$/serviseModul/serviseModul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webModule/webModule.iml" filepath="$PROJECT_DIR$/webModule/webModule.iml" />
+    </modules>
+  </component>
+</project>
+
