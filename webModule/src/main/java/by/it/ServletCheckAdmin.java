@@ -32,11 +32,11 @@ public class ServletCheckAdmin extends HttpServlet {
 				dispatcher.forward(request, response);
 			} catch (ServletException e) {
 				Loger logWr = new Loger();
-				logWr.logWrite("Failed to redirect");
+				logWr.logWrite("Error redirection");
 				return;
 			} catch (IOException e) {
 				Loger logWr = new Loger();
-				logWr.logWrite("Failed to redirect");
+				logWr.logWrite("Error redirection");
 				return;
 			}			
 									
@@ -47,11 +47,11 @@ public class ServletCheckAdmin extends HttpServlet {
 				dispatcher.forward(request, response);
 			} catch (ServletException e) {
 				Loger logWr = new Loger();
-				logWr.logWrite("lll");
+				logWr.logWrite("Error redirection");
 				return;
 			} catch (IOException e) {
 				Loger logWr = new Loger();
-				logWr.logWrite("lll");
+				logWr.logWrite("Error redirection");
 				return;
 			}
 

@@ -14,11 +14,9 @@ import java.io.IOException;
 public class EditCommand extends Command {
 
 	@Override
+    //Create a page to edit the news
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
-
-		/*PageNewsDao dao = PageNewsDao.GetMySingle();
-		BeanPageData pageId = dao.getPagesNewsId(Integer.parseInt(id));*/
         ServiceGetPagesNewsId serPer = new ServiceGetPagesNewsId();
         BeanPageData pageId = serPer.serGetPagesNewsId(id);
 
@@ -42,11 +40,11 @@ public class EditCommand extends Command {
 			dispatcher.forward(request, response);
 		} catch (ServletException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Error redirection 5");
 			return;
 		} catch (IOException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Error redirection 5");
 			return;
 		}		
 

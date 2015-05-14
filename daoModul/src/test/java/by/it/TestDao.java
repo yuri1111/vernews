@@ -16,7 +16,7 @@ public class TestDao
 
     @Test
 
-    public void testApp()  {
+    public void testApp()  { //Writing and reading of the test table
         PageNewsDao dao = PageNewsDao.GetMySingle();
         String zpr = "INSERT INTO testtable VALUES (?,?)";
         String expected = "wordtest";

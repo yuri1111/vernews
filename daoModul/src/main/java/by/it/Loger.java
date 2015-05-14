@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Loger {
+public class Loger {        // class log file
 	PrintWriter fLog;
 	public void logWrite(String str){		
 			try {

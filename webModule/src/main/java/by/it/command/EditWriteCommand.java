@@ -10,6 +10,7 @@ import java.io.IOException;
 public class EditWriteCommand extends Command {
 
 	@Override
+    // The method call for an edited news database
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		BeanPageData data = new BeanPageData();
@@ -23,14 +24,14 @@ public class EditWriteCommand extends Command {
         ServiceEditWritPage serPer = new ServiceEditWritPage();
 		if (serPer.serEditWritPage(data) == 0){
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Failed to add page 6");
 			return;
 		}
 		try {
 			response.sendRedirect("AdminController");
 		} catch (IOException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("llll");
+			logWr.logWrite("Error redirection 6");
 			return;
 		}	
 		

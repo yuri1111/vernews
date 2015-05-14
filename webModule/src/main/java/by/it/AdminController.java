@@ -23,8 +23,6 @@ public class AdminController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
 		HttpSession sesEnter = request.getSession();		
 		if (sesEnter.getAttribute("adminEnter") == null){		
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/admincheck.jsp");
@@ -32,11 +30,11 @@ public class AdminController extends HttpServlet {
 				dispatcher.forward(request, response);
 			} catch (ServletException e) {
 				Loger logWr = new Loger();
-				logWr.logWrite("lll");
+				logWr.logWrite("Error redirection");
 				return;
 			} catch (IOException e) {
 				Loger logWr = new Loger();
-				logWr.logWrite("lll");
+				logWr.logWrite("Error redirection");
 				return;
 			}
 		}

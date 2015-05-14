@@ -15,13 +15,11 @@ import java.util.List;
 public class DateCommand extends Command {
 
 	@Override
+    //The method call find news on a given date and the creation date of the selected page news
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		BeanPageData data = new BeanPageData();		
 		data.setDate(request.getParameter("dateSt"));
-
-		/*PageNewsDao dao = PageNewsDao.GetMySingle();
-		List<BeanPageData> newsPageDate = dao.datePage(data);*/
         ServiceDatePage serPer = new ServiceDatePage();
         List<BeanPageData> newsPageDate = serPer.serDatePage(data);
 
@@ -43,11 +41,11 @@ public class DateCommand extends Command {
 			dispatcher.forward(request, response);
 		} catch (ServletException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Error redirection 4 ");
 			return;
 		} catch (IOException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("������ ���������������");
+			logWr.logWrite("Error redirection 4");
 			return;
 		}		
 

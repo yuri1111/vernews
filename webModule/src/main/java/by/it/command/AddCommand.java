@@ -14,15 +14,8 @@ import java.util.List;
 public class AddCommand extends Command {
 
 	@Override
+    //Creating a page to add a new news
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		
-
-
-
-       /* PageNewsDao dao = PageNewsDao.GetMySingle();
-		BeanPageData nId = dao.newId();
-
-        List<BeanCategorData> listCategor = dao.getListCategor();*/
 
         ServiceNewID n = new ServiceNewID();
         BeanPageData nId = n.serNewID();
@@ -55,11 +48,11 @@ public class AddCommand extends Command {
 			dispatcher.forward(request, response);
 		} catch (ServletException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Error redirection 1");
 			return;
 		} catch (IOException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Error redirection 2");
 			return;
 		}		
 

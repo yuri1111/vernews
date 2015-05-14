@@ -11,6 +11,7 @@ import java.io.IOException;
 public class AddWriteCommand extends Command {
 
 	@Override
+    // The method call to add a new news database
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		BeanPageData data = new BeanPageData();
@@ -21,11 +22,10 @@ public class AddWriteCommand extends Command {
 		data.setAutor(request.getParameter("autor"));
 		data.setDate(request.getParameter("date"));
 		data.setText(request.getParameter("text"));
-
         ServiceAddWritPage serPer = new ServiceAddWritPage();
 		if (serPer.serAddWritPage(data) == 0){
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Failed to add page 3");
 			return;
 		}
 
@@ -33,7 +33,7 @@ public class AddWriteCommand extends Command {
 			response.sendRedirect("AdminController");
 		} catch (IOException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Error redirection 3");
 			return;
 		}	
 		

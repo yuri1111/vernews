@@ -13,12 +13,10 @@ import java.util.List;
 public class ShowCommand extends Command {
 
 	@Override
+    //Create the home page admin
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		List<BeanCategorData> listCategor;
 		List<BeanPageData> newsListCat;
-
-		/*ageNewsDao dao = PageNewsDao.GetMySingle();
-		listCategor = dao.getListCategor();*/
         ServiceGetListCategor serPer = new ServiceGetListCategor();
         listCategor = serPer.serGetListCategor();
 		
@@ -35,14 +33,10 @@ public class ShowCommand extends Command {
 		{
 			BeanCategorData catData = catIterator.next();
 			st.append(catData.getNameCategor());
-
-			/*newsListCat = dao.getPagesListNewsByCat(catData.getId());*/
             ServiceGetPagesListNewsByCat serPer2 = new ServiceGetPagesListNewsByCat();
             newsListCat = serPer2.serGetPagesListNewsByCat(catData.getId());
 
-
 			Iterator<BeanPageData> newsCatIterator = newsListCat.iterator();
-			
 			st.append("<ul>");
 			while(newsCatIterator.hasNext())
 			{
@@ -65,11 +59,11 @@ public class ShowCommand extends Command {
 			dispatcher.forward(request, response);
 		} catch (ServletException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Error redirection 7");
 			return;
 		} catch (IOException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("lll");
+			logWr.logWrite("Error redirection 7");
 			return;
 		}
 

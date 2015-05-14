@@ -53,7 +53,7 @@ public  class PageNewsDao {
 		return inst;		
 	}	
 	
-	public boolean checkUser(Authors log){
+	public boolean checkUser(Authors log){ //check the login and password
 		Statement obZap = null;
 		try {
 			obZap = myConnection.createStatement();
@@ -97,7 +97,7 @@ public  class PageNewsDao {
 	}
 	
 	
-	public BeanCategorData getCategor(int id)
+	public BeanCategorData getCategor(int id)//Reading from the database category
 	{
 		BeanCategorData data = null;
 		Statement obZap = null;
@@ -114,13 +114,13 @@ public  class PageNewsDao {
 				return null;			
 		} catch (SQLException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("?? ?????? ?????? ???????");
+			logWr.logWrite("Do not set up the request object");
 			return null;
 		}		
 		return data;
 	}
 	
-	public List<BeanCategorData> getListCategor()
+	public List<BeanCategorData> getListCategor()//Read the list of categories
 	{
 		ArrayList<BeanCategorData> listCat = new ArrayList<BeanCategorData>();
 		try {
@@ -135,7 +135,7 @@ public  class PageNewsDao {
 			}
 		}catch (SQLException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("?? ?????? ?????? ???????");
+			logWr.logWrite("Do not set up the request object");
 			return null;
 		}
 		
@@ -144,6 +144,7 @@ public  class PageNewsDao {
 	
 	
 	public List<BeanPageData> getPagesListNewsByCat(int numCat)
+    //Read the news list in the category of database
 	{
 		ArrayList<BeanPageData> pagesByCat = new ArrayList<BeanPageData>();
 		try {
@@ -164,14 +165,14 @@ public  class PageNewsDao {
 			}
 		}catch (SQLException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("?? ?????? ?????? ???????");
+			logWr.logWrite("Do not set up the request object");
 			return null;
 		}
 		
 		return pagesByCat;		
 	}
 	
-	public BeanPageData getPagesNewsId(int id)
+	public BeanPageData getPagesNewsId(int id)//Read news from the base
 	{
 		BeanPageData data = new	BeanPageData();
 		try {
@@ -189,13 +190,13 @@ public  class PageNewsDao {
 			}
 		}catch (SQLException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("?? ?????? ?????? ???????");
+			logWr.logWrite("Do not set up the request object");
 			return null;
 		}		
 		return data;		
 	}
 	
-	public int editWritPage(BeanPageData editPage)
+	public int editWritPage(BeanPageData editPage)//changing news database
 	{	String zpr = "UPDATE news SET categor=?,title=?,anot=?,autor=?,date=?,text=? where id=?";
 	
 		try {
@@ -211,13 +212,13 @@ public  class PageNewsDao {
 			
 		} catch (SQLException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("?? ?????? ?????? ???????");
+			logWr.logWrite("Do not set up the request object");
 			return 0;
 		}	
 		return 1;
 	}
 	
-	public int addWritPage(BeanPageData editPage)
+	public int addWritPage(BeanPageData editPage)//Add a new news database
 	{	String zpr = "INSERT INTO news VALUES (?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement obZap = myConnection.prepareStatement(zpr);
@@ -232,7 +233,7 @@ public  class PageNewsDao {
 			
 		} catch (SQLException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("?? ?????? ?????? ???????");
+			logWr.logWrite("Do not set up the request object");
 			return 0;
 		}
 		return 1;
@@ -240,7 +241,7 @@ public  class PageNewsDao {
 	
 
 	
-	public BeanPageData newId()
+	public BeanPageData newId()//Getting a new id for news
 	{
 		BeanPageData data = new	BeanPageData();
 		int id;
@@ -253,13 +254,14 @@ public  class PageNewsDao {
 			}
 		}catch (SQLException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("?? ?????? ?????? ???????");
+			logWr.logWrite("Do not set up the request object");
 			return null;
 		}		
 		return data;		
 	}
 	
-	public List<BeanPageData> datePage(BeanPageData pageD)
+	public List<BeanPageData> datePage(BeanPageData pageD)//
+    //Reading the news list from the database
 	{
 		ArrayList<BeanPageData> pagesByDate = new ArrayList<BeanPageData>();
 		String date = pageD.getDate();
@@ -281,7 +283,7 @@ public  class PageNewsDao {
 			}
 		}catch (SQLException e) {
 			Loger logWr = new Loger();
-			logWr.logWrite("?? ?????? ?????? ???????");
+			logWr.logWrite("Do not set up the request object");
 			return null;
 		}
 		
