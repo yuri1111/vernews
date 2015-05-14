@@ -1,7 +1,7 @@
 package by.it;
 
 
-
+import org.apache.log4j.Logger;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -12,6 +12,7 @@ import java.util.Properties;
 
 
 public  class PageNewsDao {
+    private static final Logger logError = Logger.getLogger(PageNewsDao.class);
 	public Connection myConnection;	
 	private PageNewsDao(){
 		FileInputStream fl;
@@ -20,8 +21,7 @@ public  class PageNewsDao {
             fl = new FileInputStream("D:\\kurs\\news\\daoModul\\src\\main\\resources\\config.properties");
 			props.load(fl);
 		} catch (IOException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Error reading file parameters");
+            logError.error("Error reading file parameters");
 			return;
 		}
 		String path = props.getProperty("path");
@@ -31,16 +31,14 @@ public  class PageNewsDao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e2) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Driver Error");
+            logError.error("Driver Error");
 			return;
 		}  
 	
 		try {
 			myConnection = DriverManager.getConnection(path, name, pass);
 		} catch (SQLException e1) {
-			Loger logWr = new Loger();
-			logWr.logWrite("No connection");
+            logError.error("No connection");
 			return;
 		}		
 	}
@@ -58,20 +56,18 @@ public  class PageNewsDao {
 		try {
 			obZap = myConnection.createStatement();
 		} catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 		}
 		String zapros = "SELECT email,pass FROM autors";
 		ResultSet result = null;
 		try {
 			result = obZap.executeQuery(zapros);
 		} catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up an inquiry zapros");
+            logError.error("Do not set up an inquiry zapros");
 			try {
 				obZap.close();
 			} catch (SQLException e1) {
-				logWr.logWrite("Not closed zapros");
+                logError.error("Not closed zapros");
 			}
 			return false;
 		}
@@ -84,12 +80,11 @@ public  class PageNewsDao {
 			return false;
 			
 		} catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Can not obtain results");
+            logError.error("Can not obtain results");
 			try {
 				obZap.close();
 			} catch (SQLException e1) {
-				logWr.logWrite("Not closed zapros");
+                logError.error("Not closed zapros");
 			}
 			return false;
 		}	
@@ -113,8 +108,7 @@ public  class PageNewsDao {
 			else 
 				return null;			
 		} catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 			return null;
 		}		
 		return data;
@@ -134,8 +128,7 @@ public  class PageNewsDao {
 				
 			}
 		}catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 			return null;
 		}
 		
@@ -164,8 +157,7 @@ public  class PageNewsDao {
 				
 			}
 		}catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 			return null;
 		}
 		
@@ -189,8 +181,7 @@ public  class PageNewsDao {
 				data.setText(result.getString(7));							
 			}
 		}catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 			return null;
 		}		
 		return data;		
@@ -211,8 +202,7 @@ public  class PageNewsDao {
 			obZap.executeUpdate();
 			
 		} catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 			return 0;
 		}	
 		return 1;
@@ -232,8 +222,7 @@ public  class PageNewsDao {
 			obZap.executeUpdate();
 			
 		} catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 			return 0;
 		}
 		return 1;
@@ -253,8 +242,7 @@ public  class PageNewsDao {
 				data.setId(id);										
 			}
 		}catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 			return null;
 		}		
 		return data;		
@@ -282,8 +270,7 @@ public  class PageNewsDao {
 				
 			}
 		}catch (SQLException e) {
-			Loger logWr = new Loger();
-			logWr.logWrite("Do not set up the request object");
+            logError.error("Do not set up the request object");
 			return null;
 		}
 		
