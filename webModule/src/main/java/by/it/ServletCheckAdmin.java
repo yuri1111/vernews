@@ -23,7 +23,7 @@ public class ServletCheckAdmin extends HttpServlet {
         Authors log = new Authors();
         log.setEmail(email);
         log.setPass(pass);
-		ServiceCheckUser serPer = new ServiceCheckUser();
+		ServiceUser serPer = new ServiceUser();
 		if (serPer.serCheckUser(log)){
 			HttpSession sesEnter = request.getSession();
 			sesEnter.setAttribute("adminEnter", "yes");

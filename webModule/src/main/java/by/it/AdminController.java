@@ -18,9 +18,7 @@ public class AdminController extends HttpServlet {
 	
     public AdminController() {
         super();
-       
     }
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession sesEnter = request.getSession();		
@@ -42,7 +40,6 @@ public class AdminController extends HttpServlet {
 		String operation = request.getParameter("operation");
 		
 		Command com = null;
-		
 		if(operation == null){
 			com = new ShowCommand();
 		}				

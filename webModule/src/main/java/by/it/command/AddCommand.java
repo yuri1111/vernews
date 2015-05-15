@@ -17,9 +17,9 @@ public class AddCommand extends Command {
     //Creating a page to add a new news
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 
-        ServiceNewID n = new ServiceNewID();
+        ServiceNews n = new ServiceNews();
         BeanPageData nId = n.serNewID();
-        ServiceGetListCategor cat = new ServiceGetListCategor();
+        ServiceCategor cat = new ServiceCategor();
         List<BeanCategorData> listCategor = cat.serGetListCategor();
 		StringBuffer st = new StringBuffer();
 		

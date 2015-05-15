@@ -2,7 +2,7 @@ package by.it.command;
 
 import by.it.Loger;
 import by.it.BeanPageData;
-import by.it.ServiceDatePage;
+import by.it.ServiceNews;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +20,7 @@ public class DateCommand extends Command {
 		
 		BeanPageData data = new BeanPageData();		
 		data.setDate(request.getParameter("dateSt"));
-        ServiceDatePage serPer = new ServiceDatePage();
+        ServiceNews serPer = new ServiceNews();
         List<BeanPageData> newsPageDate = serPer.serDatePage(data);
 
 

@@ -12,12 +12,16 @@ import java.util.List;
 
 public class ShowCommand extends Command {
 
-	@Override
-    //Create the home page admin
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+
+    /**
+     *
+     * @param request
+     * @param response
+     */     @Override
+    public void execute(HttpServletRequest request, HttpServletResponse response) {
 		List<BeanCategorData> listCategor;
 		List<BeanPageData> newsListCat;
-        ServiceGetListCategor serPer = new ServiceGetListCategor();
+        ServiceCategor serPer = new ServiceCategor();
         listCategor = serPer.serGetListCategor();
 		
 		Iterator<BeanCategorData> catIterator  = listCategor.iterator();
@@ -33,7 +37,7 @@ public class ShowCommand extends Command {
 		{
 			BeanCategorData catData = catIterator.next();
 			st.append(catData.getNameCategor());
-            ServiceGetPagesListNewsByCat serPer2 = new ServiceGetPagesListNewsByCat();
+            ServiceNews serPer2 = new ServiceNews();
             newsListCat = serPer2.serGetPagesListNewsByCat(catData.getId());
 
 			Iterator<BeanPageData> newsCatIterator = newsListCat.iterator();

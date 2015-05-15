@@ -2,7 +2,7 @@ package by.it.command;
 
 import by.it.Loger;
 import by.it.BeanPageData;
-import by.it.ServiceAddWritPage;
+import by.it.ServiceNews;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +22,7 @@ public class AddWriteCommand extends Command {
 		data.setAutor(request.getParameter("autor"));
 		data.setDate(request.getParameter("date"));
 		data.setText(request.getParameter("text"));
-        ServiceAddWritPage serPer = new ServiceAddWritPage();
+        ServiceNews serPer = new ServiceNews();
 		if (serPer.serAddWritPage(data) == 0){
 			Loger logWr = new Loger();
 			logWr.logWrite("Failed to add page 3");

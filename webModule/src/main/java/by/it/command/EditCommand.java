@@ -3,8 +3,7 @@ package by.it.command;
 
 import by.it.Loger;
 import by.it.BeanPageData;
-import by.it.ServiceGetPagesNewsId;
-
+import by.it.ServiceNews;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +16,7 @@ public class EditCommand extends Command {
     //Create a page to edit the news
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String id = request.getParameter("id");
-        ServiceGetPagesNewsId serPer = new ServiceGetPagesNewsId();
+        ServiceNews serPer = new ServiceNews();
         BeanPageData pageId = serPer.serGetPagesNewsId(id);
 
 		StringBuffer st = new StringBuffer();
